@@ -3,10 +3,7 @@ package com.cliente.dr.models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "usuarios")
@@ -14,6 +11,7 @@ public class Usuario {
 
     @Id
     @Getter @Setter @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Getter @Setter @Column(name = "nombre")
