@@ -10,4 +10,6 @@ public interface UsuarioDao {
     void deleteUsuario(long id);
 
     void postUsuario(Usuario usuario);
+
+    boolean verificarDatos(Usuario usuario);
 }

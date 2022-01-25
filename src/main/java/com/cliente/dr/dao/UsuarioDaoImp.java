@@ -31,4 +31,9 @@ public class UsuarioDaoImp implements UsuarioDao{
     public void postUsuario(Usuario usuario) {
          entityManager.merge(usuario);
     }
+
+    @Override
+    public boolean verificarDatos(Usuario usuario) {
+
+    }
 }
