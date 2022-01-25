@@ -23,7 +23,7 @@ public class UsuarioController {
 
     @RequestMapping(value = "api/usuarios/{id}", method = RequestMethod.DELETE)
     public void deleteUsuarios(@PathVariable long id){
-
+        usuarioDao.deleteUsuario(id);
     }
 
 
