@@ -3,6 +3,8 @@ package com.cliente.dr.controllers;
 
 import com.cliente.dr.dao.UsuarioDao;
 import com.cliente.dr.models.Usuario;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +27,9 @@ public class UsuarioController {
 
     @RequestMapping(value = "api/usuarios", method = RequestMethod.POST)
     public void postUsuarios(@RequestBody Usuario usuario){
+        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
+        String hashPassword =  argon2.hash(1,1024,1, usuario.getPassword());
+        usuario.setPassword(hashPassword);
         usuarioDao.postUsuario(usuario);
     }
 
